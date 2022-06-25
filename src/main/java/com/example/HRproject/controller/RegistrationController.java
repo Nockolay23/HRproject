@@ -5,6 +5,7 @@ import com.example.HRproject.domain.Role;
 import com.example.HRproject.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -22,12 +23,12 @@ public class RegistrationController {
     }
 
     @PostMapping("/registration")
-    public String addUser(User user, Map<String, Object> model)
+    public String addUser(User user, Model model)
     {
         User userDb = userRepo.findByUsername(user.getUsername());
         if (userDb != null)
         {
-            model.put("message" , "User exist!");
+            model.addAttribute("message","User exist");
             return "registration";
         }
 
