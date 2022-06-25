@@ -1,4 +1,4 @@
-package com.example.HRproject.domain;
+/*package com.example.HRproject.domain;
 
 import javax.persistence.*;
 
@@ -54,4 +54,4 @@ public class Group {
     }
 
     private Integer systemUserId;
-}
+}*/

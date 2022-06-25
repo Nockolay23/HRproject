@@ -1,4 +1,4 @@
-package com.example.HRproject;
+package com.example.HRproject.controller;
 
 import com.example.HRproject.Repos.RequestRepo;
 import com.example.HRproject.Repos.StudentRepo;
@@ -17,19 +17,23 @@ import java.util.Map;
 import java.util.Random;
 
 @Controller
-public class GreetingController {
+public class MainController {
     @Autowired
     private StudentRepo studentRepo;
 
     @Autowired
     private RequestRepo requestRepo;
-    @GetMapping("/greeting")
-    public String greeting(Map<String, Object> model) {
-        model.put("name", 123);
-        return "greeting";
+    @GetMapping("/")
+    public String home(Map<String, Object> model) {
+        return "home";
     }
 
-    @PostMapping("/greeting")
+    @GetMapping("/main")
+    public String main(Map<String, Object> model) {
+        return "main";
+    }
+
+    @PostMapping("/main")
     public String add(Map<String, Object> model){
         Random rnd = new Random();
         SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy");
@@ -66,7 +70,7 @@ public class GreetingController {
         } catch (ParseException e) {
             throw new RuntimeException(e);
         }
-        return "greeting";
+        return "main";
     }
 }
 
