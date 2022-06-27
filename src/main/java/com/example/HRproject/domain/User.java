@@ -20,6 +20,17 @@ public class User {
     private String contactDetails;
     private Integer accessLevelId;
 
+    public User(String username, String password, String name, String surname, Integer accessLevelId) {
+        this.username = username;
+        this.password = password;
+        this.name = name;
+        this.surname = surname;
+        this.accessLevelId = accessLevelId;
+    }
+
+    public User() {
+    }
+
     public boolean isActive() {
         return active;
     }
