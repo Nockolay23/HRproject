@@ -20,12 +20,13 @@ public class User {
     private String contactDetails;
     private Integer accessLevelId;
 
-    public User(String username, String password, String name, String surname, Integer accessLevelId) {
+    public User(String username, String password, String name, String surname, Integer accessLevelId, Boolean active) {
         this.username = username;
         this.password = password;
         this.name = name;
         this.surname = surname;
         this.accessLevelId = accessLevelId;
+        this.active = active;
     }
 
     public User() {
