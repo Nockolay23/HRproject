@@ -1,5 +1,6 @@
 package com.example.HRproject.controller;
 
+import com.example.HRproject.Database.Database;
 import com.example.HRproject.Repos.SystemUserRepo;
 import com.example.HRproject.domain.Role;
 import com.example.HRproject.domain.User;
@@ -25,7 +26,7 @@ public class RegistrationController {
     @PostMapping("/registration")
     public String addUser(User user, Model model)
     {
-        User userDb = userRepo.findByUsername(user.getUsername());
+        User userDb = userRepo.findByUsernameAndPassword(user.getUsername(), user.getPassword());
         if (userDb != null)
         {
             model.addAttribute("message","User exist");
