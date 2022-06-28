@@ -25,8 +25,8 @@ public class Student {
     private String directionPractice;
     private Double averageScoreForPractice;
     private String review;
-    private Integer practiceStatusId;
-    private Integer educationalInstitutionId;
+    private StatusPractice practiceStatus;
+    private EducationalInstitution educationalInstitution;
     private Integer groupId;
 
     public Student(){
@@ -36,7 +36,7 @@ public class Student {
                    Date dateOfBirth, String contactDetails, String city, Integer course,
                    Integer numberPractices,
                    String directionPractice,
-                   Integer practiceStatusId) {
+                   StatusPractice practiceStatus) {
         this.name = name;
         this.surname = surname;
         this.sex = sex;
@@ -46,7 +46,7 @@ public class Student {
         this.course = course;
         this.numberPractices = numberPractices;
         this.directionPractice = directionPractice;
-        this.practiceStatusId = practiceStatusId;
+        this.practiceStatus = practiceStatus;
     }
 
     public Integer getStudentId() {
@@ -185,20 +185,20 @@ public class Student {
         this.review = review;
     }
 
-    public Integer getPracticeStatusId() {
-        return practiceStatusId;
+    public StatusPractice getPracticeStatus() {
+        return practiceStatus;
     }
 
-    public void setPracticeStatusId(Integer practiceStatusId) {
-        this.practiceStatusId = practiceStatusId;
+    public void setPracticeStatus(StatusPractice practiceStatus) {
+        this.practiceStatus = practiceStatus;
     }
 
-    public Integer getEducationalInstitutionId() {
-        return educationalInstitutionId;
+    public EducationalInstitution getEducationalInstitutionId() {
+        return educationalInstitution;
     }
 
-    public void setEducationalInstitutionId(Integer educationalInstitutionId) {
-        this.educationalInstitutionId = educationalInstitutionId;
+    public void setEducationalInstitution(EducationalInstitution educationalInstitution) {
+        this.educationalInstitution = educationalInstitution;
     }
 
     public Integer getGroupId() {

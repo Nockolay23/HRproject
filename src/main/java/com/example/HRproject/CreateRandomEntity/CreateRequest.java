@@ -3,6 +3,8 @@ package com.example.HRproject.CreateRandomEntity;
 import com.example.HRproject.Repos.RequestRepo;
 import com.example.HRproject.Repos.StudentRepo;
 import com.example.HRproject.domain.Request;
+import com.example.HRproject.domain.StatusPractice;
+import com.example.HRproject.domain.StatusRequest;
 import com.example.HRproject.domain.Student;
 
 import java.text.ParseException;
@@ -26,7 +28,7 @@ public class CreateRequest {
             studentRepo.save(student);
             List<Student> students =  studentRepo.findByNameAndSurnameAndSexAndDateOfBirthAndContactDetails(student.getName(),
                     student.getSurname(), student.getSex(), student.getDateOfBirth(), student.getContactDetails());
-            Request request = new Request(new Date(), students.get(students.size() - 1).getStudentId(), 1);
+            Request request = new Request(new Date(), students.get(students.size() - 1).getStudentId(), StatusRequest.UNDERCONSIDERATION);
             requestRepo.save(request);
         } catch (ParseException e) {
             throw new RuntimeException(e);
@@ -45,7 +47,7 @@ public class CreateRequest {
         Integer[] course = new Integer[]{2, 3, 4, 5};
         Integer[] numberPractices = new Integer[]{0, 1, 2, 3};
         String[] directionPractice = new String[]{"Разработка", "Верстка", "Дизайн", "Аналитика"};
-        Integer practiceStatusId = 0;
+        StatusPractice practiceStatus = StatusPractice.UNDERCONSIDERATION;
 
         return new Student(
                 name[rnd.nextInt(name.length)],
@@ -57,6 +59,6 @@ public class CreateRequest {
                 course[rnd.nextInt(course.length)],
                 numberPractices[rnd.nextInt(numberPractices.length)],
                 directionPractice[rnd.nextInt(directionPractice.length)],
-                practiceStatusId);
+                practiceStatus);
     }
 }
