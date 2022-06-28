@@ -12,6 +12,9 @@ import java.util.List;
 
 public interface StudentRepo extends CrudRepository<Student, Integer> {
     List<Student> findByNameAndSurnameAndSexAndDateOfBirthAndContactDetails(String name, String surname, String sex, Date dateOfBirth, String contactDetails);
+
+    List<Student> findByPracticeStatus(StatusPractice practiceStatus);
+
     @Modifying
     @Query("update Student s set s.practiceStatus = ?1 where s.studentId = ?2")
     int setFixedPracticeStatusFor(StatusPractice practiceStatus, Integer studentId);
