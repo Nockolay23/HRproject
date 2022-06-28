@@ -5,9 +5,13 @@ import com.example.HRproject.Repos.GroupRepo;
 import com.example.HRproject.Repos.RequestRepo;
 import com.example.HRproject.Repos.StudentRepo;
 import com.example.HRproject.Repos.SystemUserRepo;
+import com.example.HRproject.domain.Request;
+import com.example.HRproject.domain.StatusPractice;
+import com.example.HRproject.domain.StatusRequest;
 import com.example.HRproject.domain.User;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Database {
@@ -54,4 +58,23 @@ public class Database {
         if(userList.size() == 0)
             userRepo.save(new User("Kurator", "Kurator", "Куратор", "Куратор", 2,true));
     }
+
+    static void updateRequest(Request request, StatusRequest newStatus){
+        requestRepo.setFixedRequestStatusFor(newStatus, request.getRequestId());
+        switch (newStatus){
+            case ACTIVE:
+                studentRepo.setFixedPracticeStatusFor(StatusPractice.ACTIVE, request.getStudentId());
+                studentRepo.setFixedStartDatePracticeFor(new Date(), request.getStudentId());
+                break;
+            case PASSED:
+                studentRepo.setFixedPracticeStatusFor(StatusPractice.PASSED, request.getStudentId());
+                studentRepo.setFixedEndDatePracticeFor(new Date(), request.getStudentId());
+                break;
+            case CANCELED:
+                studentRepo.setFixedPracticeStatusFor(StatusPractice.CANCELED, request.getStudentId());
+                break;
+        }
+
+    }
+
 }
