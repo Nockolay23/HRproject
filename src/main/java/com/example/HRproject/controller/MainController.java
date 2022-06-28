@@ -37,11 +37,13 @@ public class MainController {
         Database.setRequestRepo(requestRepo);
         Database.setUserRepo(systemUserRepo);
         Database.check();
+
         return "home";
     }
 
     @GetMapping("/main")
     public String main(Map<String, Object> model) {
+        Database.createRequest(1);
         return "main";
     }
 
