@@ -1,9 +1,9 @@
-/*package com.example.HRproject.domain;
+package com.example.HRproject.domain;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Group")
+@Table(name = "grp")
 public class Group {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
@@ -54,4 +54,4 @@ public class Group {
     }
 
     private Integer systemUserId;
-}*/
+}

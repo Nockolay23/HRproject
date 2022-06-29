@@ -4,7 +4,6 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "Request")
 public class Request {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
@@ -12,15 +11,15 @@ public class Request {
 
     private Date date;
     private Integer studentId;
-    private Integer requestStatusId;
+    private StatusRequest requestStatus;
 
     public Request(){
     }
 
-    public Request(Date date, Integer studentId, Integer requestStatusId) {
+    public Request(Date date, Integer studentId, StatusRequest requestStatus) {
         this.date = date;
         this.studentId = studentId;
-        this.requestStatusId = requestStatusId;
+        this.requestStatus = requestStatus;
     }
 
     public Integer getRequestId() {
@@ -47,11 +46,11 @@ public class Request {
         this.studentId = studentId;
     }
 
-    public Integer getRequestStatusId() {
-        return requestStatusId;
+    public StatusRequest getRequestStatus() {
+        return requestStatus;
     }
 
-    public void setRequestStatusId(Integer requestStatusId) {
-        this.requestStatusId = requestStatusId;
+    public void setRequestStatus(StatusRequest requestStatus) {
+        this.requestStatus = requestStatus;
     }
 }
