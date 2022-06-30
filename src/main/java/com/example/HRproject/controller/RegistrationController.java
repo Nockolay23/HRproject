@@ -29,10 +29,9 @@ public class RegistrationController {
         User userDb = userRepo.findByUsernameAndPassword(user.getUsername(), user.getPassword());
         if (userDb != null)
         {
-            model.addAttribute("message","User exist");
+            model.addAttribute("message","Пользователь уже существует");
             return "registration";
         }
-
         user.setActive(true);
         user.setRoles(Collections.singleton(Role.Admin));
         userRepo.save(user);

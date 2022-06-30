@@ -8,4 +8,5 @@ import java.util.List;
 public interface SystemUserRepo extends CrudRepository<User, Integer> {
     User findByUsernameAndPassword(String username, String password);
     List<User> findUserByAccessLevelId(Integer accessLevelId);
+
 }

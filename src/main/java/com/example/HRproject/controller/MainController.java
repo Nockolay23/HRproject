@@ -41,6 +41,16 @@ public class MainController {
         return "home";
     }
 
+    @GetMapping("/administrator")
+    public String administrator(Map<String, Object> model) {
+        return "administrator";
+    }
+
+    @GetMapping("/userList")
+    public String userList(Map<String, Object> model) {
+        return "userList";
+    }
+
     @GetMapping("/main")
     public String main(Map<String, Object> model) {
         Database.createRequest(1);

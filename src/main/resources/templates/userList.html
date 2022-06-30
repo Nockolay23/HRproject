@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="utf-8">
+    <title>Таблица пользователей</title>
+</head>
+<body>
+<div>
+    <h2>Counts List</h2>
+    <table border="1">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+        </tr>
+        <tr th:each="message : ${messages}">
+            <td th:text="${message.id}">1</td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
