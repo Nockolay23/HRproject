@@ -5,10 +5,7 @@ import com.example.HRproject.Repos.GroupRepo;
 import com.example.HRproject.Repos.RequestRepo;
 import com.example.HRproject.Repos.StudentRepo;
 import com.example.HRproject.Repos.SystemUserRepo;
-import com.example.HRproject.domain.Request;
-import com.example.HRproject.domain.StatusPractice;
-import com.example.HRproject.domain.StatusRequest;
-import com.example.HRproject.domain.User;
+import com.example.HRproject.domain.*;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -49,14 +46,14 @@ public class Database {
     }
 
     public static void addUser(){
-        List<User> userList = new ArrayList<>(userRepo.findUserByAccessLevelId(3));
+        List<User> userList = new ArrayList<>(userRepo.findUserByRoles(Role.Admin));
         if(userList.size() == 0)
-            userRepo.save(new User("Admin", "Admin", "Админ", "Админ", 3, true));
+            userRepo.save(new User("Admin", "Admin", "Админ", "Админ", Role.Admin, true));
 
         userList.clear();
-        userList.addAll(userRepo.findUserByAccessLevelId(2));
+        userList.addAll(userRepo.findUserByRoles(Role.USER));
         if(userList.size() == 0)
-            userRepo.save(new User("Kurator", "Kurator", "Куратор", "Куратор", 2,true));
+            userRepo.save(new User("Kurator", "Kurator", "Куратор", "Куратор", Role.USER,true));
     }
 
     static void updateRequest(Request request, StatusRequest newStatus){
@@ -74,7 +71,18 @@ public class Database {
                 studentRepo.setFixedPracticeStatusFor(StatusPractice.CANCELED, request.getStudentId());
                 break;
         }
+    }
 
+    public static Student getStudent(Request request){
+        return studentRepo.findByStudentId(request.getStudentId());
+    }
+
+    public static List<Request> getRequestByStatus(StatusRequest statusRequest){
+        return requestRepo.findAllByRequestStatus(statusRequest);
+    }
+
+    public static List<User> getUserByRole(Role role){
+        return userRepo.findUserByRoles(role);
     }
 
 }

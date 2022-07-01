@@ -18,15 +18,15 @@ public class User {
     private String surname;
     private String patronymic;
     private String contactDetails;
-    private Integer accessLevelId;
+    public Role roles;
 
-    public User(String username, String password, String name, String surname, Integer accessLevelId, Boolean active) {
+    public User(String username, String password, String name, String surname, Role role, Boolean active) {
         this.username = username;
         this.password = password;
         this.name = name;
         this.surname = surname;
-        this.accessLevelId = accessLevelId;
         this.active = active;
+        this.roles = role;
     }
 
     public User() {
@@ -40,11 +40,11 @@ public class User {
         this.active = active;
     }
 
-    public Set<Role> getRoles() {
+    public Role getRoles() {
         return roles;
     }
 
-    public void setRoles(Set<Role> roles) {
+    public void setRoles(Role roles) {
         this.roles = roles;
     }
 
@@ -103,18 +103,4 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
-
-    public Integer getAccessLevelId() {
-        return accessLevelId;
-    }
-
-    public void setAccessLevelId(Integer accessLevelId) {
-        this.accessLevelId = accessLevelId;
-    }
-
-
-    @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
-    @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
-    @Enumerated(EnumType.STRING)
-    private Set<Role> roles;
 }

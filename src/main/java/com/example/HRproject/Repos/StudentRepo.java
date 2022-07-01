@@ -15,6 +15,8 @@ public interface StudentRepo extends CrudRepository<Student, Integer> {
 
     List<Student> findByPracticeStatus(StatusPractice practiceStatus);
 
+    Student findByStudentId(Integer studentId);
+
     @Modifying
     @Query("update Student s set s.practiceStatus = ?1 where s.studentId = ?2")
     int setFixedPracticeStatusFor(StatusPractice practiceStatus, Integer studentId);
