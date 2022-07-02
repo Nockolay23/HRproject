@@ -8,6 +8,7 @@ import com.example.HRproject.Repos.SystemUserRepo;
 import com.example.HRproject.domain.Request;
 import com.example.HRproject.domain.Student;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -40,15 +41,10 @@ public class MainController {
 
         return "home";
     }
-
     @GetMapping("/administrator")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public String administrator(Map<String, Object> model) {
         return "administrator";
-    }
-
-    @GetMapping("/userList")
-    public String userList(Map<String, Object> model) {
-        return "userList";
     }
 
     @GetMapping("/main")

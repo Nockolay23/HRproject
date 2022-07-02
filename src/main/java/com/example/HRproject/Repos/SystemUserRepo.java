@@ -6,8 +6,16 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
-public interface SystemUserRepo extends CrudRepository<User, Integer> {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface SystemUserRepo extends JpaRepository<User, Long> {
+    User findByUsername(String username);
     User findByUsernameAndPassword(String username, String password);
     List<User> findUserByRoles(Role roles);
-
 }
+
+//public interface SystemUserRepo extends CrudRepository<User, Integer> {
+//    User findByUsernameAndPassword(String username, String password);
+//    List<User> findUserByRoles(Role roles);
+//
+//}

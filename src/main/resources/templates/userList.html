@@ -6,15 +6,32 @@
     <title>Таблица пользователей</title>
 </head>
 <body>
-<div>
-    <h2>Counts List</h2>
+<div th:if="${not #lists.isEmpty(users)}">
+    <h2>Таблица пользователей</h2>
     <table border="1">
         <tr>
             <th>Id</th>
             <th>Name</th>
+            <th>Surname</th>
+            <th>Patronymic</th>
+            <th>Contacts</th>
+            <th>Roles</th>
+            <th>Active</th>
+            <th>Username</th>
+            <th>Password</th>
+            <th></th>
         </tr>
-        <tr th:each="message : ${messages}">
-            <td th:text="${message.id}">1</td>
+        <tr th:each="user : ${users}">
+            <td th:text="${user.id}">1</td>
+            <td th:text="${user.name}">1</td>
+            <td th:text="${user.surname}">1</td>
+            <td th:text="${user.patronymic}">1</td>
+            <td th:text="${user.contactDetails}">1</td>
+            <td th:text="${user.roles}">1</td>
+            <td th:text="${user.active}">1</td>
+            <td th:text="${user.username}">1</td>
+            <td th:text="${user.password}">1</td>
+            <td><a href = "/userList/${user.id}">редактировать</a></td>
         </tr>
     </table>
 </div>

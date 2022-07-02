@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+  <meta charset="utf-8">
+  <title>Home page</title>
+</head>
+<body>
+<form action = "/userList" method="post">
+  <input type="text" name="username" value="${user.username}}">
+<!--  <div>-->
+<!--    <label><input type="checkbox" name="${role}" ${user.role?seq_contains(role)?string("checked", "")}>${role}</label>-->
+<!--  </div>-->
+  <input type="text" value="${user.id}" name="userId">
+  <button type="submit">Сохранить</button>
+</form>
+</body>
+</html>
