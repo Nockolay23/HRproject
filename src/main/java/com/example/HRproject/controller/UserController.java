@@ -18,7 +18,7 @@ import java.util.Map;
 
 @Controller
 @RequestMapping("/userList")
-@PreAuthorize("hasAuthority('ADMIN')")
+@PreAuthorize("hasAuthority('Admin')")
 public class UserController {
     @Autowired
     SystemUserRepo userRepo;

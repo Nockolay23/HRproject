@@ -18,7 +18,20 @@ public class User {
     private String surname;
     private String patronymic;
     private String contactDetails;
-    public Role roles;
+    //public Role roles;
+
+    @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
+    @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
+    @Enumerated(EnumType.STRING)
+    private Set<Role> roles;
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
 
     public User(String username, String password, String name, String surname, Role role, Boolean active) {
         this.username = username;
@@ -26,7 +39,7 @@ public class User {
         this.name = name;
         this.surname = surname;
         this.active = active;
-        this.roles = role;
+        //this.roles = role;
     }
 
     public User() {
@@ -40,13 +53,13 @@ public class User {
         this.active = active;
     }
 
-    public Role getRoles() {
-        return roles;
-    }
+//    public Role getRoles() {
+//        return roles;
+//    }
 
-    public void setRoles(Role roles) {
-        this.roles = roles;
-    }
+//    public void setRoles(Role roles) {
+//        this.roles = roles;
+//    }
 
     public Long getId() {
         return id;

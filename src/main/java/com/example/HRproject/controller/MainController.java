@@ -42,7 +42,7 @@ public class MainController {
         return "home";
     }
     @GetMapping("/administrator")
-    @PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("hasAuthority('Admin')")
     public String administrator(Map<String, Object> model) {
         return "administrator";
     }

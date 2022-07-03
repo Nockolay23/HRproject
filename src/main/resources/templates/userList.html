@@ -11,11 +11,11 @@
     <table border="1">
         <tr>
             <th>Id</th>
+<!--            <th>Role</th>-->
             <th>Name</th>
             <th>Surname</th>
             <th>Patronymic</th>
             <th>Contacts</th>
-            <th>Roles</th>
             <th>Active</th>
             <th>Username</th>
             <th>Password</th>
@@ -23,11 +23,11 @@
         </tr>
         <tr th:each="user : ${users}">
             <td th:text="${user.id}">1</td>
+<!--            <td th:text="${user.role}">1</td>-->
             <td th:text="${user.name}">1</td>
             <td th:text="${user.surname}">1</td>
             <td th:text="${user.patronymic}">1</td>
             <td th:text="${user.contactDetails}">1</td>
-            <td th:text="${user.roles}">1</td>
             <td th:text="${user.active}">1</td>
             <td th:text="${user.username}">1</td>
             <td th:text="${user.password}">1</td>
