@@ -22,7 +22,7 @@
             <th></th>
         </tr>
         <tr th:each="user : ${users}">
-            <td th:text="${user.id}">1</td>
+            <td th:text=${user.id}>1</td>
 <!--            <td th:text="${user.role}">1</td>-->
             <td th:text="${user.name}">1</td>
             <td th:text="${user.surname}">1</td>
@@ -31,7 +31,7 @@
             <td th:text="${user.active}">1</td>
             <td th:text="${user.username}">1</td>
             <td th:text="${user.password}">1</td>
-            <td><a href = "/userList/${user.id}">редактировать</a></td>
+            <td><a th:href="@{'/userList/' + ${user.id}}">редактировать</a></td>
         </tr>
     </table>
 </div>

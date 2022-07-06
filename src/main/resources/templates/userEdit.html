@@ -5,13 +5,28 @@
   <title>Home page</title>
 </head>
 <body>
-<form action = "/userList" method="post">
-  <input type="text" name="username" value="${user.username}">
-<!--  <div>-->
-<!--    <label><input type="checkbox" name="${role}" ${user.role?seq_contains(role)?string("checked", "")}>${role}</label>-->
-<!--  </div>-->
-  <input type="text" value="${user.id}" name="userId">
-  <button type="submit">Сохранить</button>
+<form th:action = "@{/userList}" method="post">
+  <div>
+    Имя пользователя
+    <input type="text" name="username" th:value=${user.username}>
+  </div>
+  <p>
+  <div>
+    Пароль
+    <input type="text" name="password" th:value=${user.password}>
+  </div>
+  </p>
+  <p>
+  <div th:each="role:${roles}">
+    <input th:type="checkbox"
+           th:name="${role}"
+           th:value="${role}"
+           th:checked="${#lists.contains(user.roles, role)}">
+    <label th:text="${role}" ></label>
+  </div>
+  <input type="hidden" th:value=${user.id} name="userId">
+  <p><button type="submit">Сохранить</button></p>
+  </p>
 </form>
 </body>
 </html>
