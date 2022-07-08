@@ -3,6 +3,8 @@ package com.example.HRproject.Repos;
 import com.example.HRproject.domain.StatusPractice;
 import com.example.HRproject.domain.StatusRequest;
 import com.example.HRproject.domain.Student;
+import com.example.HRproject.domain.User;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -10,7 +12,7 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.Date;
 import java.util.List;
 
-public interface StudentRepo extends CrudRepository<Student, Integer> {
+public interface StudentRepo extends JpaRepository<Student, Long> {
     List<Student> findByNameAndSurnameAndSexAndDateOfBirthAndContactDetails(String name, String surname, String sex, Date dateOfBirth, String contactDetails);
 
     List<Student> findByPracticeStatus(StatusPractice practiceStatus);

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+  <meta charset="utf-8">
+  <title>Таблица студентов</title>
+</head>
+<body>
+<!--th:if="${not #lists.isEmpty(student)}"-->
+<div>
+  <h2>Таблица студентов</h2>
+  <table border="1">
+    <tr>
+      <th>Id</th>
+      <th>City</th>
+      <th>Contact</th>
+<!--      <th>EDU</th>-->
+      <th>Course</th>
+      <th>Faculty</th>
+      <th>Speciality</th>
+      <th>Birth</th>
+      <th>Practice</th>
+      <th>Name</th>
+      <th>Surname</th>
+      <th>Patronymic</th>
+      <th>Avr Score</th>
+      <th>Number Practice</th>
+      <th>Start</th>
+      <th>End</th>
+      <th>Status</th>
+<!--      <th>Group</th>-->
+      <th>Review</th>
+      <th>Sex</th>
+    </tr>
+    <tr th:each="student : ${students}">
+      <td th:text=${student.studentId}>1</td>
+      <td th:text="${student.city}">1</td>
+      <td th:text="${student.contactDetails}">1</td>
+<!--      <td th:text="${student.educationalInstitution}">1</td>-->
+      <td th:text="${student.course}">1</td>
+      <td th:text="${student.faculty}">1</td>
+      <td th:text="${student.speciality}">1</td>
+      <td th:text="${student.dateOfBirth}">1</td>
+      <td th:text="${student.directionPractice}">1</td>
+      <td th:text="${student.name}">1</td>
+      <td th:text="${student.surname}">1</td>
+      <td th:text="${student.patronymic}">1</td>
+      <td th:text="${student.averageScoreForPractice}">1</td>
+      <td th:text="${student.numberPractices}">1</td>
+      <td th:text="${student.startDatePractice}">1</td>
+      <td th:text="${student.endDatePractice}">1</td>
+      <td th:text="${student.practiceStatus}">1</td>
+<!--      <td th:text="${student.groupId}">1</td>-->
+      <td th:text="${student.review}">1</td>
+      <td th:text="${student.sex}">1</td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

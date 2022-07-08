@@ -38,6 +38,7 @@ public class MainController {
         Database.setRequestRepo(requestRepo);
         Database.setUserRepo(systemUserRepo);
         Database.check();
+        //Database.createRequest(10);
 
         return "home";
     }
@@ -49,14 +50,14 @@ public class MainController {
 
     @GetMapping("/main")
     public String main(Map<String, Object> model) {
-        Database.createRequest(1);
+        //Database.createRequest(10);
         return "main";
     }
 
     @PostMapping("/main")
-    public String add(Map<String, Object> model){
+    public String redirect(){
 
-        return "main";
+        return "redirect:/studentList";
     }
 }
 
