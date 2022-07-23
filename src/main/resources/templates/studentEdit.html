@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="utf-8">
+    <title>Редактирование студента</title>
+</head>
+<body>
+<form th:action = "@{/studentList}" method="post">
+    <div>
+        Имя
+        <input type="text" name="name" th:value=${student.name}>
+    </div>
+    <p>
+    <div>
+        Фамилия
+        <input type="text" name="surname" th:value=${student.surname}>
+    </div>
+    </p>
+    <p>
+    <div>
+        Отчество
+        <input type="text" name="patronymic" th:value=${student.patronymic}>
+    </div>
+    </p>
+    <p>
+    <div>
+        Пол
+        <input type="text" name="sex" th:value=${student.sex}>
+    </div>
+    </p>
+    <p>
+    <div>
+        Год рождения
+        <input type="date" name="dateOfBirth" th:value=${student.dateOfBirth}>
+    </div>
+    </p>
+    <p>
+    <div>
+        Контакты
+        <input type="text" name="contactDetails" th:value=${student.contactDetails}>
+    </div>
+    </p>
+    <p>
+    <div>
+        Город
+        <input type="text" name="city" th:value=${student.city}>
+    </div>
+    </p>
+    <p>
+<!--    <p>-->
+<!--    <div>-->
+<!--        Учебное заведение-->
+<!--        <input type="text" name="educationalInstitution" th:value=${student.educationalInstitution}>-->
+<!--    </div>-->
+<!--    </p>-->
+    <div>
+        Курс
+        <input type="text" name="course" th:value=${student.course}>
+    </div>
+    </p>
+    <p>
+    <div>
+        Факультет
+        <input type="text" name="faculty" th:value=${student.faculty}>
+    </div>
+    </p>
+    <p>
+    <div>
+        Специальность
+        <input type="text" name="speciality" th:value=${student.speciality}>
+    </div>
+    </p>
+    <p>
+    <div>
+        Кол-во практик
+        <input type="text" name="numberPractices" th:value=${student.numberPractices}>
+    </div>
+    </p>
+    <p>
+    <div>
+        Дата начала практики
+        <input type="date" name="startDatePractice" th:value=${student.startDatePractice}>
+    </div>
+    </p>
+    <p>
+    <div>
+        Дата окончания практики
+        <input type="date" name="endDatePractice" th:value=${student.endDatePractice}>
+    </div>
+    </p>
+    <p>
+    <div>
+        Практика
+        <input type="text" name="directionPractice" th:value=${student.directionPractice}>
+    </div>
+    </p>
+    <p>
+    <div>
+        Средний балл за практику
+        <input type="text" name="averageScoreForPractice" th:value=${student.averageScoreForPractice}>
+    </div>
+    </p>
+    <p>
+    <div>
+        Review
+        <input type="text" name="review" th:value=${student.review}>
+    </div>
+    </p>
+<!--    <p>-->
+<!--    <div>-->
+<!--        Статус практики-->
+<!--        <input type="text" name="practiceStatus" th:value=${student.practiceStatus}>-->
+<!--    </div>-->
+<!--    </p>-->
+<!--    <p>-->
+<!--    <div>-->
+<!--        Учебное заведение-->
+<!--        <input type="text" name="educationalInstitution" th:value=${student.educationalInstitution}>-->
+<!--    </div>-->
+<!--    </p>-->
+    <p>
+    <div>
+        Группа
+        <input type="text" name="groupId" th:value=${student.groupId}>
+    </div>
+    </p>
+
+    <p>
+    Статус практики
+    <div th:each="status:${statuses}">
+        <input th:type="checkbox"
+               th:name="${status}"
+               th:value="${status}"
+               th:checked="${#lists.contains(student.practiceStatus, status)}">
+        <label th:text="${status}" ></label>
+    </div>
+    <input type="hidden" th:value=${student.studentId} name="studentId">
+    <p><button type="submit">Сохранить</button></p>
+    </p>
+</form>
+</body>
+</html>

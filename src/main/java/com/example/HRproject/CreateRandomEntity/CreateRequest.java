@@ -28,7 +28,7 @@ public class CreateRequest {
             studentRepo.save(student);
             List<Student> students =  studentRepo.findByNameAndSurnameAndSexAndDateOfBirthAndContactDetails(student.getName(),
                     student.getSurname(), student.getSex(), student.getDateOfBirth(), student.getContactDetails());
-            Request request = new Request(new Date(), students.get(students.size() - 1).getStudentId(), StatusRequest.UNDERCONSIDERATION);
+            Request request = new Request(new Date(), Math.toIntExact(students.get(students.size() - 1).getStudentId()), StatusRequest.UNDERCONSIDERATION);
             requestRepo.save(request);
         } catch (ParseException e) {
             throw new RuntimeException(e);

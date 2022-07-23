@@ -28,9 +28,10 @@
       <th>Start</th>
       <th>End</th>
       <th>Status</th>
-<!--      <th>Group</th>-->
+      <th>Group</th>
       <th>Review</th>
       <th>Sex</th>
+      <th></th>
     </tr>
     <tr th:each="student : ${students}">
       <td th:text=${student.studentId}>1</td>
@@ -50,9 +51,10 @@
       <td th:text="${student.startDatePractice}">1</td>
       <td th:text="${student.endDatePractice}">1</td>
       <td th:text="${student.practiceStatus}">1</td>
-<!--      <td th:text="${student.groupId}">1</td>-->
+      <td th:text="${student.groupId}">1</td>
       <td th:text="${student.review}">1</td>
       <td th:text="${student.sex}">1</td>
+      <td><a th:href="@{'/studentList/' + ${student.studentId}}">редактировать</a></td>
     </tr>
   </table>
 </div>

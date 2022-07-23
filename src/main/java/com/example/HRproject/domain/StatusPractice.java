@@ -4,5 +4,5 @@ public enum StatusPractice {
     UNDERCONSIDERATION,
     ACTIVE,
     PASSED,
-    CANCELED
+    CANCELED;
 }

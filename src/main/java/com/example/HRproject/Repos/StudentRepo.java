@@ -1,9 +1,6 @@
 package com.example.HRproject.Repos;
 
-import com.example.HRproject.domain.StatusPractice;
-import com.example.HRproject.domain.StatusRequest;
-import com.example.HRproject.domain.Student;
-import com.example.HRproject.domain.User;
+import com.example.HRproject.domain.*;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -16,6 +13,7 @@ public interface StudentRepo extends JpaRepository<Student, Long> {
     List<Student> findByNameAndSurnameAndSexAndDateOfBirthAndContactDetails(String name, String surname, String sex, Date dateOfBirth, String contactDetails);
 
     List<Student> findByPracticeStatus(StatusPractice practiceStatus);
+
 
     Student findByStudentId(Integer studentId);
 

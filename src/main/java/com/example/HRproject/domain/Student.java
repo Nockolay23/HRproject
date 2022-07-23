@@ -7,7 +7,7 @@ import java.util.Date;
 public class Student {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    private Integer studentId;
+    private Long studentId;
 
     private String name;
     private String surname;
@@ -49,11 +49,11 @@ public class Student {
         this.practiceStatus = practiceStatus;
     }
 
-    public Integer getStudentId() {
+    public Long getStudentId() {
         return studentId;
     }
 
-    public void setStudentId(Integer studentId) {
+    public void setStudentId(Long studentId) {
         this.studentId = studentId;
     }
 
