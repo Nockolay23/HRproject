@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+  <meta charset="utf-8">
+  <title>Редактирование заявки</title>
+</head>
+<body>
+<form th:action = "@{/requestList}" method="post">
+    Изменить статус
+  <p>
+  <div th:each="status:${statuses}">
+    <input th:type="checkbox"
+           th:name="${status}"
+           th:value="${status}"
+           th:checked="${#lists.contains(request.requestStatus, request)}">
+    <label th:text="${status}" ></label>
+  </div>
+  <input type="hidden" th:value=${request.requestId} name="requestId">
+  <p><button type="submit">Сохранить</button></p>
+  </p>
+</form>
+</body>
+</html>

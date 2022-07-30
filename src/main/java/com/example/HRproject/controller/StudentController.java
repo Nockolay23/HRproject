@@ -1,7 +1,6 @@
 package com.example.HRproject.controller;
 
 import com.example.HRproject.Repos.StudentRepo;
-import com.example.HRproject.domain.EducationalInstitution;
 import com.example.HRproject.domain.StatusPractice;
 import com.example.HRproject.domain.Student;
 import org.springframework.beans.factory.annotation.Autowired;

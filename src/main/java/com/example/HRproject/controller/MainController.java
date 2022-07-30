@@ -5,8 +5,6 @@ import com.example.HRproject.Repos.GroupRepo;
 import com.example.HRproject.Repos.RequestRepo;
 import com.example.HRproject.Repos.StudentRepo;
 import com.example.HRproject.Repos.SystemUserRepo;
-import com.example.HRproject.domain.Request;
-import com.example.HRproject.domain.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
@@ -54,10 +52,15 @@ public class MainController {
         return "main";
     }
 
-    @PostMapping("/main")
-    public String redirect(){
+    @PostMapping("/mainStudentList")
+    public String redirectStudentList(){
 
         return "redirect:/studentList";
+    }
+    @PostMapping("/mainRequestList")
+    public String redirectRequestList(){
+
+        return "redirect:/requestList";
     }
 }
 

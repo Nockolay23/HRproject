@@ -1,6 +1,5 @@
 package com.example.HRproject.controller;
 
-import com.example.HRproject.Database.Database;
 import com.example.HRproject.Repos.SystemUserRepo;
 import com.example.HRproject.domain.Role;
 import com.example.HRproject.domain.User;

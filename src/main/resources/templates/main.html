@@ -10,8 +10,11 @@
 <form th:action="@{/logout}" method="post">
     <p><input type="submit" value="Выход из системы"/></p>
 </form>
-<form th:action="@{/main}" method="post">
-    <p> <input type="submit" value="Создать таблицу"/></p>
+<form th:action="@{/mainStudentList}" method="post">
+    <p> <input type="submit" value="Создать таблицу стеднтов"/></p>
+</form>
+<form th:action="@{/mainRequestList}" method="post">
+    <p> <input type="submit" value="Создать таблицу заявок"/></p>
 </form>
 </body>
 </html>

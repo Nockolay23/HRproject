@@ -56,22 +56,22 @@ public class Database {
             userRepo.save(new User("Kurator", "Kurator", "Куратор", "Куратор", Role.USER,true));
     }
 
-    static void updateRequest(Request request, StatusRequest newStatus){
-        requestRepo.setFixedRequestStatusFor(newStatus, request.getRequestId());
-        switch (newStatus){
-            case ACTIVE:
-                studentRepo.setFixedPracticeStatusFor(StatusPractice.ACTIVE, request.getStudentId());
-                studentRepo.setFixedStartDatePracticeFor(new Date(), request.getStudentId());
-                break;
-            case PASSED:
-                studentRepo.setFixedPracticeStatusFor(StatusPractice.PASSED, request.getStudentId());
-                studentRepo.setFixedEndDatePracticeFor(new Date(), request.getStudentId());
-                break;
-            case CANCELED:
-                studentRepo.setFixedPracticeStatusFor(StatusPractice.CANCELED, request.getStudentId());
-                break;
-        }
-    }
+//    static void updateRequest(Request request, StatusRequest newStatus){
+//        requestRepo.setFixedRequestStatusFor(newStatus, request.getRequestId());
+//        switch (newStatus){
+//            case ACTIVE:
+//                studentRepo.setFixedPracticeStatusFor(StatusPractice.ACTIVE, request.getStudentId());
+//                studentRepo.setFixedStartDatePracticeFor(new Date(), request.getStudentId());
+//                break;
+//            case PASSED:
+//                studentRepo.setFixedPracticeStatusFor(StatusPractice.PASSED, request.getStudentId());
+//                studentRepo.setFixedEndDatePracticeFor(new Date(), request.getStudentId());
+//                break;
+//            case CANCELED:
+//                studentRepo.setFixedPracticeStatusFor(StatusPractice.CANCELED, request.getStudentId());
+//                break;
+//        }
+//    }
 
     public static Student getStudent(Request request){
         return studentRepo.findByStudentId(request.getStudentId());

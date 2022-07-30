@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+  <meta charset="utf-8">
+  <title>Таблица заявок</title>
+</head>
+<body>
+<div th:if="${not #lists.isEmpty(requests)}">
+  <h2>Таблица заявок</h2>
+  <table border="1">
+    <tr>
+      <th>RequestID</th>
+      <th>Date</th>
+      <th>Request Status</th>
+      <th>StudentID</th>
+      <th></th>
+    </tr>
+    <tr th:each="request : ${requests}">
+      <td th:text=${request.requestId}>1</td>
+      <td th:text="${request.date}">1</td>
+      <td th:text="${request.requestStatus}">1</td>
+      <td th:text="${request.studentId}">1</td>
+      <td><a th:href="@{'/requestList/' + ${request.requestId}}">редактировать</a></td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

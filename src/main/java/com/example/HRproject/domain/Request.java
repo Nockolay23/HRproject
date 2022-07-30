@@ -7,7 +7,7 @@ import java.util.Date;
 public class Request {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    private Integer requestId;
+    private Long requestId;
 
     private Date date;
     private Integer studentId;
@@ -22,11 +22,11 @@ public class Request {
         this.requestStatus = requestStatus;
     }
 
-    public Integer getRequestId() {
+    public Long getRequestId() {
         return requestId;
     }
 
-    public void setRequestId(Integer requestId) {
+    public void setRequestId(Long requestId) {
         this.requestId = requestId;
     }
 

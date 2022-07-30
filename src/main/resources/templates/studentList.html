@@ -34,26 +34,26 @@
       <th></th>
     </tr>
     <tr th:each="student : ${students}">
-      <td th:text=${student.studentId}>1</td>
-      <td th:text="${student.city}">1</td>
-      <td th:text="${student.contactDetails}">1</td>
-<!--      <td th:text="${student.educationalInstitution}">1</td>-->
-      <td th:text="${student.course}">1</td>
-      <td th:text="${student.faculty}">1</td>
-      <td th:text="${student.speciality}">1</td>
-      <td th:text="${student.dateOfBirth}">1</td>
-      <td th:text="${student.directionPractice}">1</td>
-      <td th:text="${student.name}">1</td>
-      <td th:text="${student.surname}">1</td>
-      <td th:text="${student.patronymic}">1</td>
-      <td th:text="${student.averageScoreForPractice}">1</td>
-      <td th:text="${student.numberPractices}">1</td>
-      <td th:text="${student.startDatePractice}">1</td>
-      <td th:text="${student.endDatePractice}">1</td>
-      <td th:text="${student.practiceStatus}">1</td>
-      <td th:text="${student.groupId}">1</td>
-      <td th:text="${student.review}">1</td>
-      <td th:text="${student.sex}">1</td>
+      <td th:text=${student.studentId}>studentId</td>
+      <td th:text="${student.city}">city</td>
+      <td th:text="${student.contactDetails}">contactDetails</td>
+<!--      <td th:text="${student.educationalInstitution}">educationalInstitution</td>-->
+      <td th:text="${student.course}">course</td>
+      <td th:text="${student.faculty}">faculty</td>
+      <td th:text="${student.speciality}">speciality</td>
+      <td th:text="${student.dateOfBirth}">dateOfBirth</td>
+      <td th:text="${student.directionPractice}">directionPractice</td>
+      <td th:text="${student.name}">name</td>
+      <td th:text="${student.surname}">surname</td>
+      <td th:text="${student.patronymic}">patronymic</td>
+      <td th:text="${student.averageScoreForPractice}">averageScoreForPractice</td>
+      <td th:text="${student.numberPractices}">numberPractices</td>
+      <td th:text="${student.startDatePractice}">startDatePractice</td>
+      <td th:text="${student.endDatePractice}">endDatePractice</td>
+      <td th:text="${student.practiceStatus}">practiceStatus</td>
+      <td th:text="${student.groupId}">groupId</td>
+      <td th:text="${student.review}">review</td>
+      <td th:text="${student.sex}">sex</td>
       <td><a th:href="@{'/studentList/' + ${student.studentId}}">редактировать</a></td>
     </tr>
   </table>
